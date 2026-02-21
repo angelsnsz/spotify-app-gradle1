@@ -6,26 +6,33 @@ import java.util.ArrayList;
 
 public class AlbumMemLocalDataSource {
 
+    private static AlbumMemLocalDataSource instance = null;
 
-    public ArrayList<Album> albumMemStorage = new ArrayList<>();
+    private ArrayList<Album> storage = new ArrayList<>();
 
-    public AlbumMemLocalDataSource() {
+    private AlbumMemLocalDataSource() {
         initData();
     }
 
-    public void initData(){
-        Album album1= new Album("1","Yo, minoria absoluta","2002");
-        albumMemStorage.add(album1);
-
-        Album album2= new Album("2","The Masterplan","1998");
-        albumMemStorage.add(album2);
+    private void initData(){
+        Album album = new Album("1","album1", "1999");
+        storage.add(album);
     }
 
     public ArrayList<Album> findAll(){
-        return albumMemStorage;
+        return storage;
     }
 
     public void save(Album album){
-        albumMemStorage.add(album);
+        storage.add(album);
+        System.out.println(album);
+    }
+
+    public static AlbumMemLocalDataSource newInstance(){
+        if (instance == null){
+            instance = new AlbumMemLocalDataSource();
+        }
+
+        return instance;
     }
 }

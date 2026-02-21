@@ -5,7 +5,8 @@ import edu.iesam.features.albums.domain.AlbumRepository;
 
 import java.util.ArrayList;
 
-public class AlbumDataRepository  implements AlbumRepository {
+public class AlbumDataRepository implements AlbumRepository {
+
     private AlbumMemLocalDataSource albumMemLocalDataSource;
 
     public AlbumDataRepository(AlbumMemLocalDataSource albumMemLocalDataSource) {
@@ -15,5 +16,10 @@ public class AlbumDataRepository  implements AlbumRepository {
     @Override
     public ArrayList<Album> getAlbums() {
         return albumMemLocalDataSource.findAll();
+    }
+
+    @Override
+    public void saveAlbum(Album album) {
+        albumMemLocalDataSource.save(album);
     }
 }

@@ -1,6 +1,7 @@
 package edu.iesam.features.albums.domain;
 
 public class Album {
+
     private String id;
     private String name;
     private String year;

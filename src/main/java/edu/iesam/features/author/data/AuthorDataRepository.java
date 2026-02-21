@@ -10,10 +10,12 @@ public class AuthorDataRepository implements AuthorRepository {
     private AuthorMemLocalDataSource authorMemLocalDataSource;
     private AuthorApiLocalDataSource authorApiLocalDataSource;
 
-    public AuthorDataRepository(AuthorMemLocalDataSource authorMemLocalDataSource, AuthorApiLocalDataSource authorApiLocalDataSource) {
+    public AuthorDataRepository(AuthorMemLocalDataSource authorMemLocalDataSource,
+                                AuthorApiLocalDataSource authorApiLocalDataSource) {
         this.authorMemLocalDataSource = authorMemLocalDataSource;
-        this.authorApiLocalDataSource= authorApiLocalDataSource;
+        this.authorApiLocalDataSource = authorApiLocalDataSource;
     }
+
 
     @Override
     public ArrayList<Author> getAuthors() {

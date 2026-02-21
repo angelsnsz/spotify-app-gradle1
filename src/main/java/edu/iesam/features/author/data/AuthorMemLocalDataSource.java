@@ -6,25 +6,25 @@ import java.util.ArrayList;
 
 public class AuthorMemLocalDataSource {
 
-    public ArrayList<Author> authorMenStorage = new ArrayList<>();
+    public ArrayList<Author> authorsMemStorage = new ArrayList<>();
 
     public AuthorMemLocalDataSource() {
         initData();
     }
 
-    public void initData(){
-        Author author1= new Author("1","Extremoduro","01-01-1970","Española");
-        authorMenStorage.add(author1);
+    private void initData(){
+        Author author1 = new Author("1", "MemExtremoduro", "01-01-1970", "Española");
+        authorsMemStorage.add(author1);
 
-        Author author2= new Author("2","Oasis","01-01-1980","Inglesa");
-        authorMenStorage.add(author2);
+        Author author2 = new Author("2", "MemOasis", "01-01-1980", "Inglesa");
+        authorsMemStorage.add(author2);
     }
 
     public ArrayList<Author> findAll(){
-        return authorMenStorage;
+        return authorsMemStorage;
     }
 
     public void save(Author author){
-        authorMenStorage.add(author);
+        authorsMemStorage.add(author);
     }
 }

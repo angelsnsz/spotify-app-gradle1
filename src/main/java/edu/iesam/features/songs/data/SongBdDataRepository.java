@@ -5,7 +5,7 @@ import edu.iesam.features.songs.domain.SongRepository;
 
 import java.util.ArrayList;
 
-public class SongDataRepository implements SongRepository {
+public class SongBdDataRepository implements SongRepository {
 
     @Override
     public ArrayList<Song> findAll() {
@@ -15,15 +15,8 @@ public class SongDataRepository implements SongRepository {
         song1.setAuthor("Los del Rio");
         song1.setDuration("4:00:00");
 
-        Song song2 = new Song();
-        song2.setId("2");
-        song2.setTitle("Pollito Pepe");
-        song2.setAuthor("Las Ketchup");
-        song2.setDuration("3:00:00");
-
         ArrayList<Song> songs = new ArrayList<>();
         songs.add(song1);
-        songs.add(song2);
 
         return songs;
     }

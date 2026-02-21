@@ -3,6 +3,7 @@ package edu.iesam.features.songs.domain;
 import java.util.ArrayList;
 
 public class GetSongsUseCase {
+
     private SongRepository songRepository;
 
     public GetSongsUseCase(SongRepository songRepository){
