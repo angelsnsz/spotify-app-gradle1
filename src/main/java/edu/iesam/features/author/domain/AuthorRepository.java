@@ -6,5 +6,4 @@ public interface AuthorRepository {
 
     public ArrayList<Author> getAuthors();
 
-
 }
