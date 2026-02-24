@@ -6,6 +6,10 @@ import edu.iesam.features.songs.domain.SongRepository;
 import java.util.ArrayList;
 
 public class SongDataRepository implements SongRepository {
+    public SongDataRepository(SongMemLocalDataSource songMemLocalDataSource){
+        this.songMemLocalDataSource = songMemLocalDataSource;
+    }
+    private SongMemLocalDataSource songMemLocalDataSource;
 
     @Override
     public ArrayList<Song> findAll() {
@@ -27,4 +31,10 @@ public class SongDataRepository implements SongRepository {
 
         return songs;
     }
+
+    @Override
+    public void save(Song song){
+        songMemLocalDataSource.save(song);
+    }
+
 }

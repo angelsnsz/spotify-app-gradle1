@@ -21,4 +21,13 @@ public class AuthorDataRepository implements AuthorRepository {
     public ArrayList<Author> getAuthors() {
         return authorMemLocalDataSource.findAll();
     }
+
+    @Override
+    public void saveAuthor(Author author) {
+        authorMemLocalDataSource.save(author);
+    }
+    @Override
+    public void deleteAuthor(String id){
+        authorMemLocalDataSource.deleteById(id);
+    }
 }

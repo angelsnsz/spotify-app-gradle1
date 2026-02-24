@@ -6,9 +6,10 @@ import java.util.ArrayList;
 
 public class AuthorMemLocalDataSource {
 
+    private static AuthorMemLocalDataSource instance=null;
     public ArrayList<Author> authorsMemStorage = new ArrayList<>();
 
-    public AuthorMemLocalDataSource() {
+    private AuthorMemLocalDataSource() {
         initData();
     }
 
@@ -26,5 +27,15 @@ public class AuthorMemLocalDataSource {
 
     public void save(Author author){
         authorsMemStorage.add(author);
+    }
+
+    public static AuthorMemLocalDataSource newInstance(){
+        if(instance == null){
+            instance = new AuthorMemLocalDataSource();
+        }
+        return instance;
+    }
+    public void deleteById(String id){
+        authorsMemStorage.removeIf(author -> author.getId().equals(id));
     }
 }
