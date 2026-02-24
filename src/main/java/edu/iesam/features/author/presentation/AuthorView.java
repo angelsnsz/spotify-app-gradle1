@@ -4,6 +4,7 @@ import edu.iesam.features.author.data.AuthorApiLocalDataSource;
 import edu.iesam.features.author.data.AuthorDataRepository;
 import edu.iesam.features.author.data.AuthorMemLocalDataSource;
 import edu.iesam.features.author.domain.Author;
+import edu.iesam.features.author.domain.DeleteAuthorUseCase;
 import edu.iesam.features.author.domain.GetAuthorsUseCase;
 import edu.iesam.features.author.domain.SaveAuthorUseCase;
 
@@ -33,5 +34,19 @@ public class AuthorView {
 
         ArrayList<Author> authors =getAuthorsUseCase.execute();
         System.out.println(authors);
+    }
+
+    public static void deleteAuthor(){
+
+        DeleteAuthorUseCase deleteAuthorUseCase =
+                new DeleteAuthorUseCase(
+                        new AuthorDataRepository(
+                                AuthorMemLocalDataSource.newInstance(),
+                                new AuthorApiLocalDataSource()
+                        )
+                );
+
+        deleteAuthorUseCase.execute("1");
+        printAuthors();
     }
 }
