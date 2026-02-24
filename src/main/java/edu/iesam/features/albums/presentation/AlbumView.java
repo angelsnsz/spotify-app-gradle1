@@ -3,6 +3,7 @@ package edu.iesam.features.albums.presentation;
 import edu.iesam.features.albums.data.AlbumDataRepository;
 import edu.iesam.features.albums.data.AlbumMemLocalDataSource;
 import edu.iesam.features.albums.domain.Album;
+import edu.iesam.features.albums.domain.DeleteAlbumUseCase;
 import edu.iesam.features.albums.domain.GetAlbumsUseCase;
 import edu.iesam.features.albums.domain.SaveAlbumUseCase;
 
@@ -27,6 +28,19 @@ public class AlbumView {
         saveAlbumUseCase.execute(newAlbum);
 
 
+        printAlbums();
+    }
+
+    public static void deleteAlbum(){
+
+        DeleteAlbumUseCase deleteAlbumUseCase =
+                new DeleteAlbumUseCase(
+                        new AlbumDataRepository(
+                                AlbumMemLocalDataSource.newInstance()
+                        )
+                );
+
+        deleteAlbumUseCase.execute("1");
         printAlbums();
     }
 }

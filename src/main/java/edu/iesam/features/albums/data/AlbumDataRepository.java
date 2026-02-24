@@ -22,4 +22,9 @@ public class AlbumDataRepository implements AlbumRepository {
     public void saveAlbum(Album album) {
         albumMemLocalDataSource.save(album);
     }
+
+    @Override
+    public void deleteAlbum(String id){
+        albumMemLocalDataSource.deleteById(id);
+    }
 }
