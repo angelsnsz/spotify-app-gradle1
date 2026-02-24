@@ -1,6 +1,7 @@
 package edu.iesam.features.songs.presentation;
 
-import edu.iesam.features.songs.data.SongBdDataRepository;
+import edu.iesam.features.songs.data.SongDataRepository;
+import edu.iesam.features.songs.data.SongMemLocalDataSource;
 import edu.iesam.features.songs.domain.GetSongsUseCase;
 import edu.iesam.features.songs.domain.Song;
 
@@ -10,7 +11,7 @@ public class SongView {
 
 
     public static void printSongs(){
-        GetSongsUseCase getSongsUseCase = new GetSongsUseCase(new SongBdDataRepository());
+        GetSongsUseCase getSongsUseCase = new GetSongsUseCase(new SongDataRepository(SongMemLocalDataSource.newInstance()));
 
         ArrayList<Song> songsList = getSongsUseCase.execute();
 
