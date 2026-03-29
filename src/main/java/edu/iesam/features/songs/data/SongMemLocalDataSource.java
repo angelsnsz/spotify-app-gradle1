@@ -6,7 +6,7 @@ import edu.iesam.features.songs.domain.SongRepository;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class SongMemLocalDataSource implements SongRepository {
+public class SongMemLocalDataSource {
 
     private static SongMemLocalDataSource instance = null;
 
@@ -31,4 +31,5 @@ public class SongMemLocalDataSource implements SongRepository {
 
         return instance;
     }
+
 }

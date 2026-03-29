@@ -48,4 +48,7 @@ public class GetAlbumByIdUseCase {
         //Then
         assertNull(album);
     }
+
+    private Album execute(String number) {
+    }
 }

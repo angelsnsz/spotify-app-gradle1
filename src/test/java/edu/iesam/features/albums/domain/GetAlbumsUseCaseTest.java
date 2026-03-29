@@ -19,10 +19,14 @@ class GetAlbumsUseCaseTest {
     public EmptyAlbumMockRepository emptyAlbumMockRepository;
     public NullAlbumMockRepository nullAlbumMockRepository;
 
-    /*
-        Tipo Test: Devuelve 'Algo'
-        "Test que devuelve un listado con datos"
-    */
+    @BeforeEach
+    void setUp() {
+
+    }
+    /**
+     * Tipo test: Devuelve 'algo'
+     * Test que devuelve un listado con datos.
+     */
     @Test
     public void shouldReturnAlbumListWhenExecuteUseCase(){
         //Give: Inicializamos variables
@@ -36,9 +40,9 @@ class GetAlbumsUseCaseTest {
         assertEquals("1", albums.get(0).getId());
     }
 
-    /*
-    Tipo Test: Devuelve 'Algo'
-    "Test que devuelve un listado vacio"
+    /**
+     * Tipo test: Devuelve 'algo'
+     * Test que devuelve un listado vacío
      */
     @Test
     public void shouldReturnEmptyAlbumListWhenExecuteUseCase(){
@@ -51,18 +55,18 @@ class GetAlbumsUseCaseTest {
         //Then: Asserts
         assertEquals(0,albums.size());
     }
-
-    /*
-   Tipo Test: Devuelve 'Algo'
-   "Test que devuelve un nulo"
-    */
+    /**
+     * Tipo test: Devuelve 'algo'
+     * Test que devuelve un nulo
+     */
     @Test
-    public void shouldReturnEmptyAlbumListWhenExecuteUseCase(){
-        //Give: Inicializamos variables
-        nullAlbumMockRepository= new NullAlbumMockRepository();
-        getAlbumsUseCase= new GetAlbumsUseCase(nullAlbumMockRepository);
+    public void shouldReturnNullAlbumListWhenExecuteUseCase() {
+        //Given: Inicializamos variables
+        nullAlbumMockRepository = new NullAlbumMockRepository();
+        getAlbumsUseCase = new GetAlbumsUseCase(nullAlbumMockRepository);
+
         //When: Ejecutamos el caso de uso
-        ArrayList<Album> albums= getAlbumsUseCase.execute();
+        ArrayList<Album> albums = getAlbumsUseCase.execute();
 
         //Then: Asserts
         assertNull(albums);
