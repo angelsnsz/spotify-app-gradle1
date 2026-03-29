@@ -1,6 +1,7 @@
 package edu.iesam.features.albums.domain;
 
 import edu.iesam.features.albums.data.AlbumDataRepository;
+import edu.iesam.features.albums.data.AlbumMemLocalDataSource;
 import edu.iesam.mocks.AlbumMockRepository;
 import edu.iesam.mocks.EmptyAlbumMockRepository;
 import edu.iesam.mocks.NullAlbumMockRepository;
@@ -17,10 +18,7 @@ class GetAlbumsUseCaseTest {
     public AlbumMockRepository albumMockRepository;
     public EmptyAlbumMockRepository emptyAlbumMockRepository;
     public NullAlbumMockRepository nullAlbumMockRepository;
-    @BeforeEach
-    void setUp() {
 
-    }
     /*
         Tipo Test: Devuelve 'Algo'
         "Test que devuelve un listado con datos"
@@ -34,7 +32,7 @@ class GetAlbumsUseCaseTest {
         ArrayList<Album> albums= getAlbumsUseCase.execute();
 
         //Then: Asserts
-        assertEquals(3,albums.size());
+        assertEquals(3, albums.size());
         assertEquals("1", albums.get(0).getId());
     }
 
@@ -67,6 +65,6 @@ class GetAlbumsUseCaseTest {
         ArrayList<Album> albums= getAlbumsUseCase.execute();
 
         //Then: Asserts
-        assertEquals(albums);
+        assertNull(albums);
     }
 }

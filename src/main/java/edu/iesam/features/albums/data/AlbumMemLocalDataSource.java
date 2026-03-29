@@ -3,6 +3,7 @@ package edu.iesam.features.albums.data;
 import edu.iesam.features.albums.domain.Album;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class AlbumMemLocalDataSource {
 
@@ -10,26 +11,20 @@ public class AlbumMemLocalDataSource {
 
     private ArrayList<Album> storage = new ArrayList<>();
 
-    private AlbumMemLocalDataSource() {
-        initData();
-    }
-
-    private void initData(){
-        Album album = new Album("1","album1", "1999");
-        storage.add(album);
-    }
-
-    public ArrayList<Album> findAll(){
+    public ArrayList<Album> findAll() {
         return storage;
     }
 
-    public void save(Album album){
+    public void save(Album album) {
         storage.add(album);
-        System.out.println(album);
     }
 
-    public static AlbumMemLocalDataSource newInstance(){
-        if (instance == null){
+    public void delete(String id) {
+        storage.removeIf(album -> Objects.equals(album.getId(), id));
+    }
+
+    public static AlbumMemLocalDataSource newInstance() {
+        if (instance == null) {
             instance = new AlbumMemLocalDataSource();
         }
 

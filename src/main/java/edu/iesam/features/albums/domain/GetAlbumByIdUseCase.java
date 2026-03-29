@@ -3,7 +3,7 @@ package edu.iesam.features.albums.domain;
 public class GetAlbumByIdUseCase{
     private AlbumRepository albumRepository;
 
-    public GetAlbumsUseCase(AlbumRepository albumRepository){
+    public GetAlbumByIdUseCase(AlbumRepository albumRepository){
         this.albumRepository = albumRepository;
     }
 

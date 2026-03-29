@@ -1,7 +1,6 @@
 package edu.iesam.features.author.domain;
 
 public class Author {
-
     private String id;
     private String name;
     private String bornDate;

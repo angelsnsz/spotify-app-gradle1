@@ -9,6 +9,7 @@ public class Main {
         //SongView.printSongs();
         //AuthorView.printAuthors();
         //AlbumView.printAlbums();
-        AlbumView.saveAlbum();
+        //AlbumView.saveAlbum();
+        //AlbumView.deleteAlbum();
     }
 }
